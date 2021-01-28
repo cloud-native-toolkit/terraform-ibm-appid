@@ -6,5 +6,4 @@ module "dev_appid" {
   cluster_id               = module.dev_cluster.id
   namespaces               = [module.dev_capture_tools_state.namespace]
   namespace_count          = 1
-  provision                = true
 }
