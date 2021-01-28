@@ -11,16 +11,19 @@ variable "resource_location" {
 variable "cluster_id" {
   type        = string
   description = "Id of the cluster"
+  default     = ""
 }
 
 variable "namespaces" {
   type        = list(string)
   description = "Namespaces"
+  default     = []
 }
 
 variable "namespace_count" {
   type        = number
   description = "The number of namespaces"
+  default     = 0
 }
 
 variable "tags" {
