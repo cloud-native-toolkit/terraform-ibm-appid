@@ -23,6 +23,59 @@ versions:
         moduleRef:
           id: cluster
           output: id
+      - name: cluster_config_file
+        moduleRef:
+          id: cluster
+          output: config_file_path
+      - name: resource_group_name
+        scope: global
+        type: string
+        description: Resource group where the cluster has been provisioned.
+      - name: resource_location
+        scope: global
+        alias: region
+        type: string
+        description: Geographic location of the resource (e.g. us-south, us-east)
+      - name: namespaces
+        scope: module
+      - name: namespace_count
+        scope: module
+      - name: tags
+        scope: module
+        type: list(string)
+        description: Tags that should be applied to the service
+        default: []
+        optional: true
+      - name: name_prefix
+        scope: global
+        type: string
+        description: The prefix name for the service. If not provided it will default to the resource group name
+        default: ""
+        optional: true
+      - name: plan
+        scope: module
+        type: string
+        description: The type of plan the service instance should run under (lite or graduated-tier)
+        default: graduated-tier
+        optional: true
+    version: v1.2.0
+  - platforms: []
+    dependencies:
+      - id: cluster
+        refs:
+          - source: github.com/ibm-garage-cloud/terraform-ibm-container-platform
+            version: ">= 1.7.0"
+          - source: github.com/ibm-garage-cloud/terraform-k8s-ocp-cluster
+            version: ">= 2.0.0"
+      - id: namespace
+        refs:
+          - source: github.com/ibm-garage-cloud/terraform-k8s-namespace
+            version: ">= 2.1.0"
+    variables:
+      - name: cluster_id
+        moduleRef:
+          id: cluster
+          output: id
         type: string
         description: Id of the cluster
         optional: true
