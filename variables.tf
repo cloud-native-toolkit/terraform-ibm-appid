@@ -8,24 +8,6 @@ variable "resource_location" {
   description = "Geographic location of the resource (e.g. us-south, us-east)"
 }
 
-variable "cluster_id" {
-  type        = string
-  description = "Id of the cluster"
-  default     = ""
-}
-
-variable "namespaces" {
-  type        = list(string)
-  description = "Namespaces"
-  default     = []
-}
-
-variable "namespace_count" {
-  type        = number
-  description = "The number of namespaces"
-  default     = 0
-}
-
 variable "tags" {
   type        = list(string)
   description = "Tags that should be applied to the service"
