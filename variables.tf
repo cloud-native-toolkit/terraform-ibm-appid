@@ -1,3 +1,8 @@
+variable "ibmcloud_api_key" {
+  type        = string
+  description = "The api key for IBM Cloud access"
+}
+
 variable "resource_group_name" {
   type        = string
   description = "Resource group where the cluster has been provisioned."
@@ -24,4 +29,9 @@ variable "plan" {
   type        = string
   description = "The type of plan the service instance should run under (lite or graduated-tier)"
   default     = "graduated-tier"
+}
+
+variable "region" {
+  type        = string
+  description = "Geographic location of the resource (e.g. us-south, us-east)"
 }
