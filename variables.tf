@@ -30,8 +30,3 @@ variable "plan" {
   description = "The type of plan the service instance should run under (lite or graduated-tier)"
   default     = "graduated-tier"
 }
-
-variable "region" {
-  type        = string
-  description = "Geographic location of the resource (e.g. us-south, us-east)"
-}
