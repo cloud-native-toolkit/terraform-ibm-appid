@@ -1,4 +1,4 @@
-id: github.com/ibm-garage-cloud/terraform-ibm-appid
+id: github.com/cloud-native-toolkit/terraform-ibm-appid
 name: ibm-appid
 type: terraform
 description: Provisions the IBM Cloud AppId service
@@ -6,6 +6,39 @@ tags:
   - tools
   - devops
 versions:
+  - platforms: []
+    variables:
+      - name: resource_group_name
+        scope: global
+        type: string
+        description: Resource group where the cluster has been provisioned.
+      - name: resource_location
+        scope: global
+        alias: region
+        type: string
+        description: Geographic location of the resource (e.g. us-south, us-east)
+      - name: tags
+        scope: module
+        type: list(string)
+        description: Tags that should be applied to the service
+        default: []
+        optional: true
+      - name: name_prefix
+        scope: global
+        type: string
+        description: The prefix name for the service. If not provided it will default to the resource group name
+        default: ""
+        optional: true
+      - name: plan
+        scope: module
+        type: string
+        description: The type of plan the service instance should run under (lite or graduated-tier)
+        default: graduated-tier
+        optional: true
+      - name: ibmcloud_api_key
+        type: string
+        description: The api key for IBM Cloud access
+    version: v1.3.0
   - platforms: []
     dependencies:
       - id: cluster
