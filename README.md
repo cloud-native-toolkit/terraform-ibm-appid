@@ -21,6 +21,8 @@ None
 
 ## Example usage
 
+[Refer test cases for more details](test/stages/stage-appid.tf)
+
 ```hcl-terraform
 module "dev_infrastructure_appid" {
   source = "github.com/ibm-garage-cloud/terraform-ibm-appid.git?ref=v1.0.0"
